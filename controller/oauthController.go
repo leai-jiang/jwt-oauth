@@ -21,6 +21,5 @@ func (* OAuthController) login(w http.ResponseWriter, r *http.Request) {
 }
 
 func init() {
-	core.Router.Register("/login/github", OAuth.login)
+	core.Router.Register("/api/login/github", OAuth.login)
 }
-
