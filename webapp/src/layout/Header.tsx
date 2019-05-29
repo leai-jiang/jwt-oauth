@@ -5,7 +5,7 @@ export const Header = (): JSX.Element => {
 	return (
 		<div className="header">
 			<div className="logo">Sparta</div>
-			<Icon type="close"/>
+			<Icon type="user"/>
 		</div>
 	)
 };
