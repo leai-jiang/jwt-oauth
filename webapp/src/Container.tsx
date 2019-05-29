@@ -7,7 +7,7 @@ interface ContainerProps {
 }
 const Container = (props: ContainerProps): JSX.Element => {
     return (
-        <div>
+        <div className="container">
             <Header/>
             <Background/>
             {props.children}
