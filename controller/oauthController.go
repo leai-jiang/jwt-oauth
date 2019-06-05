@@ -76,8 +76,8 @@ func (* OAuthController) getAccessToken(w http.ResponseWriter, r *http.Request) 
 	if githubUserDao.SelectUserById(githubUser.Id) == nil {
 		githubUserDao.Insert(githubUser)
 	}
-	
-	http.Redirect(w, r, "/login", http.StatusTemporaryRedirect)
+
+	http.Redirect(w, r, "/login", http.StatusTemporaryRedirect) 
 }
 
 func init() {
