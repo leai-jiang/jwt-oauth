@@ -73,7 +73,7 @@ func (* OAuthController) GetAccessToken(w http.ResponseWriter, r *http.Request) 
 	if err := json.Unmarshal(data, &githubUser); err != nil {
 		fmt.Println(err)
 	} else {
-		if id := githubUserDao.SelectUserById(githubUser.Id).Id; id == 0 {
+		if rows := len(githubUserDao.SelectUserById(githubUser.Id)); rows == 0 {
 			githubUser.Create_time = time.Now()
 			githubUser.Update_time = time.Now()
 			githubUserDao.Insert(githubUser)

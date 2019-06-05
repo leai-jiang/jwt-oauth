@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b06feefc-6f07-4585-ba95-9984a6b7bb26" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/oauthController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/oauthController.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/database.go" beforeDir="false" afterPath="$PROJECT_DIR$/core/database.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dao/oauthGithub.go" beforeDir="false" afterPath="$PROJECT_DIR$/dao/oauthGithub.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/oauthGithub.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/oauthGithub.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,8 +17,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controller/oauthController.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="75" selection-start-line="75" selection-end-line="75" />
+            <state relative-caret-position="161">
+              <caret line="76" selection-start-line="76" selection-end-line="76" />
               <folding>
                 <element signature="e#20#150#0" expanded="true" />
               </folding>
@@ -50,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/database.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="61">
-              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="95">
+              <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
               <folding>
                 <element signature="e#14#101#0" expanded="true" />
               </folding>
@@ -62,11 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dao/oauthGithub.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
+            <state relative-caret-position="229">
+              <caret line="39" column="22" lean-forward="true" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
               <folding>
                 <element signature="e#13#61#0" expanded="true" />
               </folding>
@@ -180,10 +177,10 @@
         <option value="$PROJECT_DIR$/core/router.go" />
         <option value="$PROJECT_DIR$/Dockerfile" />
         <option value="$PROJECT_DIR$/model/oauthGithub.go" />
-        <option value="$PROJECT_DIR$/dao/oauthGithub.go" />
-        <option value="$PROJECT_DIR$/controller/oauthController.go" />
         <option value="$PROJECT_DIR$/main.go" />
         <option value="$PROJECT_DIR$/core/database.go" />
+        <option value="$PROJECT_DIR$/controller/oauthController.go" />
+        <option value="$PROJECT_DIR$/dao/oauthGithub.go" />
       </list>
     </option>
   </component>
@@ -283,13 +280,13 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23564954" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23564954" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32776934" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3284553" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.30569106" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.30569106" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -312,46 +309,88 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/dao/oauthGithub.go</url>
-          <line>30</line>
+          <url>file://$PROJECT_DIR$/controller/oauthController.go</url>
+          <line>76</line>
           <properties />
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/dao/oauthGithub.go</url>
-          <line>32</line>
-          <properties />
-          <option name="timeStamp" value="14" />
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/dao/oauthGithub.go</url>
-          <line>33</line>
+          <line>38</line>
           <properties />
-          <option name="timeStamp" value="15" />
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/controller/oauthController.go</url>
-          <line>71</line>
+          <url>file://$PROJECT_DIR$/dao/oauthGithub.go</url>
+          <line>39</line>
           <properties />
-          <option name="timeStamp" value="16" />
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/controller/oauthController.go</url>
-          <line>72</line>
+          <url>file://$PROJECT_DIR$/dao/oauthGithub.go</url>
+          <line>40</line>
           <properties />
-          <option name="timeStamp" value="17" />
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/controller/oauthController.go</url>
-          <line>75</line>
+          <url>file://$PROJECT_DIR$/dao/oauthGithub.go</url>
+          <line>43</line>
           <properties />
-          <option name="timeStamp" value="18" />
+          <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/dao/oauthGithub.go</url>
           <line>31</line>
           <properties />
-          <option name="timeStamp" value="22" />
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/dao/oauthGithub.go</url>
+          <line>32</line>
+          <properties />
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/dao/oauthGithub.go</url>
+          <line>36</line>
+          <properties />
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/dao/oauthGithub.go</url>
+          <line>20</line>
+          <properties />
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/dao/oauthGithub.go</url>
+          <line>25</line>
+          <properties />
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/dao/oauthGithub.go</url>
+          <line>16</line>
+          <properties />
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/dao/oauthGithub.go</url>
+          <line>12</line>
+          <properties />
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/dao/oauthGithub.go</url>
+          <line>46</line>
+          <properties />
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/controller/oauthController.go</url>
+          <line>75</line>
+          <properties />
+          <option name="timeStamp" value="38" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -604,32 +643,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dao/oauthGithub.go">
+    <entry file="file://$PROJECT_DIR$/core/database.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="95">
+          <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
           <folding>
-            <element signature="e#13#61#0" expanded="true" />
+            <element signature="e#14#101#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/oauthController.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="75" selection-start-line="75" selection-end-line="75" />
+        <state relative-caret-position="161">
+          <caret line="76" selection-start-line="76" selection-end-line="76" />
           <folding>
             <element signature="e#20#150#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/database.go">
+    <entry file="file://$PROJECT_DIR$/dao/oauthGithub.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="229">
+          <caret line="39" column="22" lean-forward="true" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
           <folding>
-            <element signature="e#14#101#0" expanded="true" />
+            <element signature="e#13#61#0" expanded="true" />
           </folding>
         </state>
       </provider>

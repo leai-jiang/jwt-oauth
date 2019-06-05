@@ -21,7 +21,7 @@ var DB *sql.DB
 
 func ConnectDB() {
 	dataSourceName := strings.Join([]string{User, ":", Password, "@tcp(", IP, ":", Port, ")/", Database, "?charset=utf8&parseTime=True&loc=Local"}, "")
-	DB, _ := sql.Open(DriveName, dataSourceName)
+	DB, _ = sql.Open(DriveName, dataSourceName)
 
 	DB.SetConnMaxLifetime(100)
 

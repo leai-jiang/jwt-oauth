@@ -2,6 +2,7 @@ package dao
 
 import (
 	"fmt"
+	"log"
 	"sparta/core"
 	"sparta/model"
 )
@@ -26,12 +27,22 @@ func (this *OAuthGithubDao) Insert(githubUser *model.GithubUser) int64 {
 }
 
 
-func (this *OAuthGithubDao) SelectUserById(id int64) *model.GithubUser {
-	var user *model.GithubUser
-	row := core.DB.QueryRow("SELECT * FROM OAuthGithub WHERE id = ?", id)
-	err := row.Scan(&user.Id, &user.Name, &user.Avatar)
+func (this *OAuthGithubDao) SelectUserById(id int64) []model.GithubUser {
+	rows,err := core.DB.Query("SELECT * FROM OAuthGithub WHERE id = ?",id)
 	if err != nil {
-		fmt.Println(err)
+		log.Println(err)
+		return nil
 	}
-	return user
+	var users []model.GithubUser
+	for rows.Next() {
+		var user model.GithubUser
+		err := rows.Scan(&user.Id,&user.Name)
+		if err != nil{
+			log.Println(err)
+			continue
+		}
+		users = append(users,user)
+	}
+	rows.Close()
+	return users
 }
