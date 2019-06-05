@@ -1,12 +1,15 @@
 package controller
 
 import (
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"net/url"
 	"sparta/core"
+	"sparta/dao"
+	"sparta/model"
 )
 
 const (
@@ -15,6 +18,8 @@ const (
 	ClientId = "ecf4d78a2de563fbf68a"
 	ClientSecret = "01f41a42bfdd5564f4b6d7191c3d70d268f445cf"
 )
+
+var githubUserDao = new(dao.OAuthGithubDao)
 
 var OAuth = new(OAuthController)
 
@@ -63,10 +68,15 @@ func (* OAuthController) getAccessToken(w http.ResponseWriter, r *http.Request) 
 	if err != nil {
 		fmt.Println(err)
 	}
+	var githubUser *model.GithubUser
+	if err := json.Unmarshal(data, githubUser); err != err {
+		fmt.Println(err)
+	}
 
-	// The user data should be wrote in table `OAuth`
-	fmt.Println(string(data))
-
+	if githubUserDao.SelectUserById(githubUser.Id) == nil {
+		githubUserDao.Insert(githubUser)
+	}
+	
 	http.Redirect(w, r, "/login", http.StatusTemporaryRedirect)
 }
 

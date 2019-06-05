@@ -3,10 +3,10 @@ package main
 import (
 	"fmt"
 	"log"
-	"time"
 	"net/http"
-	"sparta/core"
 	_ "sparta/controller"
+	"sparta/core"
+	"time"
 )
 
 func main() {
