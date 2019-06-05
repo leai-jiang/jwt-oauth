@@ -26,14 +26,12 @@ func (this *OAuthGithubDao) Insert(githubUser *model.GithubUser) int64 {
 }
 
 
-func (this *OAuthGithubDao) SelectUserById(id int64) model.GithubUser {
-	fmt.Println(id)
-
-	var user model.GithubUser
-	err := core.DB.QueryRow("SELECT * FROM OAuthGithub").Scan(&user.Id, &user.Name, &user.Avatar)
+func (this *OAuthGithubDao) SelectUserById(id int64) *model.GithubUser {
+	var user *model.GithubUser
+	row := core.DB.QueryRow("SELECT * FROM OAuthGithub WHERE id = ?", id)
+	err := row.Scan(&user.Id, &user.Name, &user.Avatar)
 	if err != nil {
 		fmt.Println(err)
 	}
-
 	return user
 }
