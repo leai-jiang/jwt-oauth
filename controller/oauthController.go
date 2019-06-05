@@ -13,10 +13,10 @@ import (
 )
 
 const (
-	// ClientId = "eed6beabf09a8713d3a7"
-	// ClientSecret = "801d470a630d99d2a6d6a0c05af875f326b3f9d5"
-	ClientId = "ecf4d78a2de563fbf68a"
-	ClientSecret = "01f41a42bfdd5564f4b6d7191c3d70d268f445cf"
+	ClientId = "eed6beabf09a8713d3a7"
+	ClientSecret = "801d470a630d99d2a6d6a0c05af875f326b3f9d5"
+	// ClientId = "ecf4d78a2de563fbf68a"
+	// ClientSecret = "01f41a42bfdd5564f4b6d7191c3d70d268f445cf"
 )
 
 var githubUserDao = new(dao.OAuthGithubDao)
