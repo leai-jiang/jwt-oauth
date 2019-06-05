@@ -10,13 +10,14 @@ import (
 	"sparta/core"
 	"sparta/dao"
 	"sparta/model"
+	"time"
 )
 
 const (
-	ClientId = "eed6beabf09a8713d3a7"
-	ClientSecret = "801d470a630d99d2a6d6a0c05af875f326b3f9d5"
-	// ClientId = "ecf4d78a2de563fbf68a"
-	// ClientSecret = "01f41a42bfdd5564f4b6d7191c3d70d268f445cf"
+	//ClientId = "eed6beabf09a8713d3a7"
+	//ClientSecret = "801d470a630d99d2a6d6a0c05af875f326b3f9d5"
+	ClientId = "ecf4d78a2de563fbf68a"
+	ClientSecret = "01f41a42bfdd5564f4b6d7191c3d70d268f445cf"
 )
 
 var githubUserDao = new(dao.OAuthGithubDao)
@@ -68,14 +69,18 @@ func (* OAuthController) getAccessToken(w http.ResponseWriter, r *http.Request) 
 	if err != nil {
 		fmt.Println(err)
 	}
+
 	var githubUser *model.GithubUser
-	if err := json.Unmarshal(data, githubUser); err != err {
+	if err := json.Unmarshal(data, &githubUser); err != nil {
 		fmt.Println(err)
+	} else {
+		if githubUserDao.SelectUserById(githubUser.Id) == nil {
+			githubUser.Create_time = time.Now()
+			githubUser.Update_time = time.Now()
+			githubUserDao.Insert(githubUser)
+		}
 	}
 
-	if githubUserDao.SelectUserById(githubUser.Id) == nil {
-		githubUserDao.Insert(githubUser)
-	}
 
 	http.Redirect(w, r, "/login", http.StatusTemporaryRedirect)
 }

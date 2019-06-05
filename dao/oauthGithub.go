@@ -26,22 +26,14 @@ func (this *OAuthGithubDao) Insert(githubUser *model.GithubUser) int64 {
 }
 
 
-func (this *OAuthGithubDao) SelectUserById(id string) []model.GithubUser {
-	rows, err := core.DB.Query("SELECT * FROM OAuthGithub WHERE id = ?", id)
+func (this *OAuthGithubDao) SelectUserById(id int64) model.GithubUser {
+	fmt.Println(id)
+
+	var user model.GithubUser
+	err := core.DB.QueryRow("SELECT * FROM OAuthGithub").Scan(&user.Id, &user.Name, &user.Avatar)
 	if err != nil {
 		fmt.Println(err)
-		return nil
 	}
-	var users []model.GithubUser
-	for rows.Next() {
-		var user model.GithubUser
-		err := rows.Scan(&user.Id, &user.Name, &user.Avatar)
-		if err != nil {
-			fmt.Println(err)
-			continue
-		}
-		users = append(users, user)
-	}
-	rows.Close()
-	return users
+
+	return user
 }

@@ -3,9 +3,9 @@ package model
 import "time"
 
 type GithubUser struct {
-	Id          string `json:"id"`
+	Id          int64 `json:"id"`
 	Name        string `json:"name"`
-	Avatar      string `json:"avatar"`
+	Avatar      string `json:"avatar_url"`
 	Company     string `json:"company"`
 	Blog        string `json:"blog"`
 	Email       string `json:"email"`
