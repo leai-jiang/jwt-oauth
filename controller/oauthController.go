@@ -2,11 +2,11 @@ package controller
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"net/url"
+	"sparta/core"
 	"sparta/dao"
 	"sparta/model"
 	"time"
@@ -50,7 +50,7 @@ func (* OAuthController) GetAccessToken(w http.ResponseWriter, r *http.Request) 
 	query, err := url.ParseQuery(string(body))
 
 	accessToken := query["access_token"][0]
-	fmt.Println(`token ` + accessToken)
+	log.Println(`token ` + accessToken)
 
 
 	client := &http.Client{}
@@ -60,18 +60,18 @@ func (* OAuthController) GetAccessToken(w http.ResponseWriter, r *http.Request) 
 
 	response, err := client.Do(req)
 	if err != nil {
-		fmt.Println(err)
+		log.Println(err)
 	}
 	defer response.Body.Close()
 
 	data, err := ioutil.ReadAll(response.Body)
 	if err != nil {
-		fmt.Println(err)
+
 	}
 
 	var githubUser *model.GithubUser
 	if err := json.Unmarshal(data, &githubUser); err != nil {
-		fmt.Println(err)
+
 	} else {
 		if rows := len(githubUserDao.SelectUserById(githubUser.Id)); rows == 0 {
 			githubUser.Create_time = time.Now()
@@ -84,3 +84,7 @@ func (* OAuthController) GetAccessToken(w http.ResponseWriter, r *http.Request) 
 	http.Redirect(w, r, "/login", http.StatusTemporaryRedirect)
 }
 
+func init() {
+	core.Router.Register("/api/login/github", OAuth.Login)
+	core.Router.Register("/api/oauth/redirect", OAuth.GetAccessToken)
+}
