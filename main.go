@@ -9,7 +9,6 @@ import (
 )
 
 func main() {
-	core.InitLogger()
 	core.ConnectDB()
 
 	server := &http.Server{
