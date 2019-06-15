@@ -1,12 +1,12 @@
 FROM golang
 
-MAINTAINER Razil "zc6496359"
-
 WORKDIR $GOPATH/src/sparta
 
 ADD . $GOPATH/src/sparta
 
-RUN go get -u github.com/go-sql-driver/mysql
+RUN env=production
+
+RUN go get -d -v ./...
 
 RUN go build main.go
 

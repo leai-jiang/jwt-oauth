@@ -1,0 +1,10 @@
+{"host":"localhost:5005","level":"info","method":"GET","msg":"[sparta-log]","path":"/api/oauth/redirect","requestTime":"2019/6/15 20:59:46","time":"2019-06-15T20:59:46+08:00"{"{"host":"localhost:5005","level":"info","method":"GET","msg":"[sparta-log]","path":"/api/oauth/redirect","requestTime":"2019/6/15 21:03:16","time":"2019-06-15T21:03:16+08:00"}
+{"host":"localhost:5005","level":"info","method":"GET","msg":"[sparta-log]","path":"/api/oauth/redirect","requestTime":"2019/6/15 20:50:26","time":"2019-06-15T20:50:26+08:00"}
+{"host":"localhost:5005","level":"info","method":"GET","msg":"[sparta-log]","path":"/api/oauth/redirect","requestTime":"2019/6/15 20:55:26","time":"2019-06-15T20:55:26+08:00"}
+{"host":"localhost:5005","level":"info","method":"GET","msg":"[sparta-log]","path":"/api/oauth/redirect","requestTime":"2019/6/15 20:55:28","time":"2019-06-15T20:55:28+08:00"}
+{"host":"localhost:5005","level":"info","method":"GET","msg":"[sparta-log]","path":"/api/oauth/redirect","requestTime":"2019/6/15 20:55:28","time":"2019-06-15T20:55:28+08:00"}
+{"host":"localhost:5005","level":"info","method":"GET","msg":"[sparta-log]","path":"/api/oauth/redirect","requestTime":"2019/6/15 20:46:00","time":"2019-06-15T20:46:00+08:00"}
+{"host":"localhost:5005","level":"info","method":"GET","msg":"[sparta-log]","path":"/api/oauth/redirect","requestTime":"2019/6/15 20:46:00","time":"2019-06-15T20:46:00+08:00"}
+{"host":"localhost:5005","level":"info","method":"GET","msg":"[sparta-log]","path":"/api/oauth/redirect","requestTime":"2019/6/15 20:46:02","time":"2019-06-15T20:46:02+08:00"}
+{"host":"localhost:5005","level":"info","method":"GET","msg":"[sparta-log]","path":"/api/oauth/redirect","requestTime":"2019/6/15 20:47:03","time":"2019-06-15T20:47:03+08:00"}
+{"host":"localhost:5005","level":"info","method":"GET","msg":"[sparta-log]","path":"/api/oauth/redirect","requestTime":"2019/6/15 20:47:14","time":"2019-06-15T20:47:14+08:00"}

@@ -3,6 +3,7 @@ package core
 import (
 	"fmt"
 	"net/http"
+	"sparta/middleware"
 )
 
 var Router = new(RouteHandler)
@@ -24,5 +25,5 @@ func (this *RouteHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 }
 
 func (this *RouteHandler) Register(pattern string, handler func(http.ResponseWriter, *http.Request)) {
-	mux[pattern] = handler
+	mux[pattern] = middleware.LoggerMiddleware(handler)
 }

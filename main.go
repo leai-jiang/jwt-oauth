@@ -1,7 +1,6 @@
 package main
 
 import (
-	"log"
 	"net/http"
 	_ "sparta/controller"
 	"sparta/core"
@@ -20,6 +19,6 @@ func main() {
 	err := server.ListenAndServe()
 
 	if err != nil {
-		log.Panic(err)
+		panic(err)
 	}
 }

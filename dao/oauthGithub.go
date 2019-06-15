@@ -1,7 +1,6 @@
 package dao
 
 import (
-	"fmt"
 	"log"
 	"sparta/core"
 	"sparta/model"
@@ -15,12 +14,12 @@ func (this *OAuthGithubDao) Insert(githubUser *model.GithubUser) int64 {
 		githubUser.Id, githubUser.Name, githubUser.Avatar, githubUser.Company, githubUser.Blog, githubUser.Email, githubUser.Location, githubUser.Create_time, githubUser.Update_time)
 
 	if err != nil {
-		fmt.Println(err)
+		log.Println(err)
 		return 0
 	}
 	id, err := result.LastInsertId()
 	if err != nil {
-		fmt.Println(err)
+		log.Println(err)
 		return 0
 	}
 	return id
@@ -28,7 +27,10 @@ func (this *OAuthGithubDao) Insert(githubUser *model.GithubUser) int64 {
 
 
 func (this *OAuthGithubDao) SelectUserById(id int64) []model.GithubUser {
-	rows,err := core.DB.Query("SELECT * FROM OAuthGithub WHERE id = ?",id)
+	rows,err := core.DB.Query("SELECT `id`, `name`, `avatar` FROM OAuthGithub WHERE id = ?",id)
+	defer func() {
+		_ = rows.Close()
+	}()
 	if err != nil {
 		log.Println(err)
 		return nil
@@ -36,13 +38,13 @@ func (this *OAuthGithubDao) SelectUserById(id int64) []model.GithubUser {
 	var users []model.GithubUser
 	for rows.Next() {
 		var user model.GithubUser
-		err := rows.Scan(&user.Id,&user.Name)
+		err := rows.Scan(&user.Id,&user.Name,&user.Avatar)
 		if err != nil{
 			log.Println(err)
 			continue
 		}
 		users = append(users,user)
 	}
-	rows.Close()
+
 	return users
 }
