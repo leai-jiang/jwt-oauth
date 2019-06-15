@@ -4,7 +4,6 @@ import (
 	log "github.com/sirupsen/logrus"
 	"net/http"
 	"os"
-	"time"
 )
 
 
@@ -17,14 +16,13 @@ func LoggerMiddleware(h func(http.ResponseWriter, *http.Request)) func(http.Resp
 		panic("Cannot open file `" + logFileName + "`")
 	}
 	logger.Out = file
-	logger.SetFormatter(&log.JSONFormatter{})
+	//logger.SetFormatter(&log.JSONFormatter{})
 
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		logger.WithFields(log.Fields{
-			"requestTime": time.Now().Format("2006/1/2 15:04:05"),
-			"host": r.Host,
-			"method": r.Method,
 			"path": r.URL.Path,
+			"method": r.Method,
+			"host": r.Host,
 		}).Info("[sparta-log]")
 
 		h(w, r)

@@ -94,8 +94,16 @@ func (* OAuthController) GetAccessToken(w http.ResponseWriter, r *http.Request) 
 		}
 	}
 
+	cookie := &http.Cookie{
+		Name: "u_i",
+		Value: "github@" + string(githubUser.Id),
+		Path: "/",
+		HttpOnly: true,
+		MaxAge: int(time.Hour * 24 / time.Second),
+	}
+	http.SetCookie(w, cookie)
 
-	http.Redirect(w, r, "/login", http.StatusTemporaryRedirect)
+	http.Redirect(w, r, "/", http.StatusTemporaryRedirect)
 }
 
 func init() {
