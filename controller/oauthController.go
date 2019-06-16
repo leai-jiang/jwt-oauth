@@ -7,9 +7,11 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"sparta/config"
 	"sparta/core"
 	"sparta/dao"
 	"sparta/model"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -24,9 +26,9 @@ func (* OAuthController) Login(w http.ResponseWriter, r *http.Request) {
 	var clientId string
 
 	if isProd := strings.Compare("production", os.Getenv("env")) == 0; isProd {
-		clientId = "eed6beabf09a8713d3a7"
+		clientId = config.Viper.GetString("oauth_github_prod.clientId")
 	} else {
-		clientId = "ecf4d78a2de563fbf68a"
+		clientId = config.Viper.GetString("oauth_github_dev.clientId")
 	}
 	redirectUrl := "https://github.com/login/oauth/authorize?client_id=" + clientId
 	http.Redirect(w, r, redirectUrl, http.StatusTemporaryRedirect)
@@ -43,11 +45,11 @@ func (* OAuthController) GetAccessToken(w http.ResponseWriter, r *http.Request) 
 	var clientSecret string
 
 	if isProd := strings.Compare("production", os.Getenv("env")) == 0; isProd {
-		clientId = "eed6beabf09a8713d3a7"
-		clientSecret = "801d470a630d99d2a6d6a0c05af875f326b3f9d5"
+		clientId = config.Viper.GetString("oauth_github_prod.clientId")
+		clientSecret = config.Viper.GetString("oauth_github_prod.clientSecret")
 	} else {
-		clientId = "ecf4d78a2de563fbf68a"
-		clientSecret = "01f41a42bfdd5564f4b6d7191c3d70d268f445cf"
+		clientId = config.Viper.GetString("oauth_github_dev.clientId")
+		clientSecret = config.Viper.GetString("oauth_github_dev.clientSecret")
 	}
 
 	requestUrl := "https://github.com/login/oauth/access_token?client_id=" + clientId + "&client_secret=" + clientSecret + "&code=" + code
@@ -95,8 +97,8 @@ func (* OAuthController) GetAccessToken(w http.ResponseWriter, r *http.Request) 
 	}
 
 	cookie := &http.Cookie{
-		Name: "u_i",
-		Value: "github@" + string(githubUser.Id),
+		Name: "u_t",
+		Value: "github@" + strconv.FormatInt(githubUser.Id, 10),
 		Path: "/",
 		HttpOnly: true,
 		MaxAge: int(time.Hour * 24 / time.Second),

@@ -1,4 +1,4 @@
-import Login from "./routes/Login";
+import Home from "./routes/Home";
 
 interface Route {
     key: string;
@@ -10,8 +10,8 @@ interface Route {
 
 export const routes: Route[] = [
     {
-      key: "login",
-      path: "/login",
-      component: Login
+      key: "home",
+      path: "/home",
+      component: Home
     }
 ]

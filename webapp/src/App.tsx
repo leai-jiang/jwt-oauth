@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Route, Switch, BrowserRouter } from "react-router-dom";
+import { Route, Redirect, Switch, BrowserRouter } from "react-router-dom";
 import { routes } from "./routes"
 import Container from "./Container";
 import './App.css';
@@ -9,6 +9,7 @@ const App = (): JSX.Element => {
     <BrowserRouter>
         <Container>
           <Switch>
+            <Redirect path="/" exact to="/home" />
             {routes.map(({ key, path, exact = true, component }) => (
               <Route
                 key={key}

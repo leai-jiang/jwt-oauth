@@ -5,21 +5,21 @@ import (
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 	"log"
+	"sparta/config"
 	"strings"
-)
-
-const (
-	DriveName = "mysql"
-	IP = "139.199.230.235"
-	Port = "3306"
-	User = "root"
-	Password = "Jerusalem3"
-	Database = "sparta"
 )
 
 var DB *sql.DB
 
 func ConnectDB() {
+	var (
+		DriveName = "mysql"
+		IP = config.Viper.GetString("mysql.host")
+		Port = config.Viper.GetString("mysql.port")
+		User = config.Viper.GetString("mysql.user")
+		Password = config.Viper.GetString("mysql.password")
+		Database = config.Viper.GetString("mysql.database")
+	)
 	dataSourceName := strings.Join([]string{User, ":", Password, "@tcp(", IP, ":", Port, ")/", Database, "?charset=utf8&parseTime=True&loc=Local"}, "")
 	DB, _ = sql.Open(DriveName, dataSourceName)
 

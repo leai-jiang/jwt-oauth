@@ -1,0 +1,17 @@
+{
+  "mysql": {
+    "host": "139.199.230.235",
+    "port": "3306",
+    "user": "root",
+    "password": "Jerusalem3",
+    "database": "sparta"
+  },
+  "oauth_github_dev": {
+    "clientId": "ecf4d78a2de563fbf68a",
+    "clientSecret": "01f41a42bfdd5564f4b6d7191c3d70d268f445cf"
+  },
+  "oauth_github_prod": {
+    "clientId": "eed6beabf09a8713d3a7",
+    "clientSecret": "801d470a630d99d2a6d6a0c05af875f326b3f9d5"
+  }
+}
