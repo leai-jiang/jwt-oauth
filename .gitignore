@@ -1,0 +1,12 @@
+.idea/workspace.xml
+
+# dependencies
+webapp/node_modules
+
+# testing
+webapp/coverage
+
+webapp/npm-debug.log*
+webapp/yarn-debug.log*
+webapp/yarn-error.log*
+webapp/yarn.lock
