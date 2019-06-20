@@ -1,7 +1,6 @@
 {
-  "main.css": "static/css/main.7d00bc48.css",
-  "main.css.map": "static/css/main.7d00bc48.css.map",
-  "main.js": "static/js/main.3f145a4a.js",
-  "main.js.map": "static/js/main.3f145a4a.js.map",
+  "app.css": "static/css/app.7d00bc48.css",
+  "app.js": "static/js/app.9d4c8fee.js",
+  "polyfills.js": "static/js/polyfills.ae9d1e8a.js",
   "static\\media\\bg.jpg": "static/media/bg.1dd22e5f.jpg"
 }

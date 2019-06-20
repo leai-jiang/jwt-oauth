@@ -4,7 +4,8 @@ WORKDIR $GOPATH/src/sparta
 
 ADD . $GOPATH/src/sparta
 
-RUN env=production
+RUN export env=production
+RUN export NODE_ENV=production
 
 RUN go get -d -v ./...
 
