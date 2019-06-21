@@ -2,7 +2,7 @@ import * as React from "react";
 import { Icon } from "antd";
 
 function loginGithub() {
-	window.location.href = "http://localhost:5005/api/login/github"
+	window.location.href = "/api/login/github"
 }
 
 export const Header = (): JSX.Element => {
