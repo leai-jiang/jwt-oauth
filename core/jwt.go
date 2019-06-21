@@ -54,7 +54,10 @@ func Payload(secret string, token string) (*JWTPayload, error) {
 
 	var p *JWTPayload
 	payloadStr, _ := base64.StdEncoding.DecodeString(payload)
-	json.Unmarshal([]byte(payloadStr), &p)
+	err := json.Unmarshal([]byte(payloadStr), &p)
+	if err != nil {
+		return nil, errors.New("UNMARSHAL PAYLOAD FAILED")
+	}
 
 	if p.exp.Before(time.Now()) {
 		return nil, errors.New("TOKEN HAS EXPIRED")
