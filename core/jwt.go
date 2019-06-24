@@ -6,7 +6,6 @@ import (
 	"encoding/json"
 	"errors"
 	"log"
-	"net/http"
 	"strings"
 	"time"
 )
@@ -64,12 +63,6 @@ func Payload(secret string, token string) (*JWTPayload, error) {
 	}
 
 	return p, nil
-}
-
-func JWTHTTPMiddleware(h func(http.ResponseWriter, *http.Request)) func(http.ResponseWriter, *http.Request) {
-	return func(w http.ResponseWriter, r *http.Request) {
-
-	}
 }
 
 func generateBody(jwtHeader JWTHeader, jwtPayload JWTPayload) (string, string) {
