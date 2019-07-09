@@ -16,3 +16,10 @@ var signingMethods map[string]func() SigningMethod
 func RegisterSigningMethod(alg string, m func() SigningMethod) {
 	signingMethods[alg] = m
 }
+
+func GetSigningMethod(alg string) (m SigningMethod) {
+	if methodFunc, ok := signingMethods[alg]; ok {
+		m = methodFunc()
+	}
+	return
+}
