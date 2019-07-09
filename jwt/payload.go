@@ -7,10 +7,10 @@ import (
 
 type Payload interface {
 	// 验证签名是否已经生效
-	VerifyNotBefore(date int64) bool
+	VerifyNotBefore(int64) bool
 
 	// 验证签名是否已经过期
-	VerifyExpiresAt(date int64) bool
+	VerifyExpiresAt(int64) bool
 
 	// 验证是否满足上述两个条件
 	Valid() error

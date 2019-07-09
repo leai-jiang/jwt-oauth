@@ -6,24 +6,19 @@ import (
 
 // Error constants
 var (
-	ErrInvalidKey      = errors.New("key is invalid")
-	ErrInvalidKeyType  = errors.New("key is of invalid type")
 	ErrHashUnavailable = errors.New("the requested hash function is unavailable")
+	ErrSigningMethodUnavailable = errors.New("the signing method is unavailable")
 )
 
 // The errors that might occur when parsing and validating a token
 const (
-	ValidationErrorMalformed        uint32 = 1 << iota // Token is malformed
+	ValidationErrorMalformed        uint32 = 1 << iota // 签名不规范
 	ValidationErrorUnverifiable                        // Token could not be verified because of signing problems
 	ValidationErrorSignatureInvalid                    // Signature validation failed
 
 	// Standard Claim validation errors
-	ValidationErrorAudience      // AUD validation failed
-	ValidationErrorExpired       // EXP validation failed
-	ValidationErrorIssuedAt      // IAT validation failed
-	ValidationErrorIssuer        // ISS validation failed
-	ValidationErrorNotValidYet   // NBF validation failed
-	ValidationErrorId            // JTI validation failed
+	ValidationErrorExpired       // 签名过期
+	ValidationErrorNotValidYet   // 签名未生效
 	ValidationErrorClaimsInvalid // Generic claims validation error
 )
 
@@ -37,7 +32,7 @@ func NewValidationError(errorText string, errorFlags uint32) *ValidationError {
 
 // The error from Parse if token is not valid
 type ValidationError struct {
-	Inner  error  // stores the error returned by external dependencies, i.e.: KeyFunc
+	Inner  error  // 存放解析过程之中的错误信息
 	Errors uint32 // bitfield.  see ValidationError... constants
 	text   string // errors that do not have a valid error just have text
 }
