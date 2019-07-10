@@ -4,37 +4,32 @@ import (
 	"encoding/json"
 	"net/http"
 	"sparta/jwt"
+	"sparta/view"
 )
 
-type Response struct {
-	RetCode 	int32 		`json:"retCode"`
-	Data 		interface{} `json:"data"`
-	Message 	string		`json:"message"`
-}
+var SecretKey = "It is a secret key"
 
-func WrapJWTHTTPMiddleware(key string) func(func(http.ResponseWriter, *http.Request)) func(http.ResponseWriter, *http.Request) {
-	return func (h func(http.ResponseWriter, *http.Request)) func(http.ResponseWriter, *http.Request) {
-		return func(w http.ResponseWriter, r *http.Request) {
-			tokenString := r.Header.Get("token")
+func JWTHTTPMiddleware (h func(http.ResponseWriter, *http.Request)) func(http.ResponseWriter, *http.Request) {
+	return func(w http.ResponseWriter, r *http.Request) {
+		tokenString := r.Header.Get("token")
 
-			token, err := new(jwt.Parse).Parse(tokenString, key)
-			if err != nil {
+		token, err := new(jwt.Parse).Parse(tokenString, SecretKey)
+		if err != nil {
 
-			}
-			if token != nil && token.Valid {
-				h(w, r)
-			}
-
-			res := &Response{
-				RetCode: -1,
-				Data: nil,
-				Message: "permission not allow",
-			}
-
-			ress, e := json.Marshal(res)
-			if e != nil {}
-			w.Write(ress)
 		}
+		if token != nil && token.Valid {
+			h(w, r)
+		}
+
+		res := &view.BaseView{
+			RetCode: -1,
+			Data: nil,
+			Message: err.Error(),
+		}
+
+		ress, _ := json.Marshal(res)
+
+		w.Write(ress)
 	}
 }
 

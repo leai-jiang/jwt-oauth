@@ -11,7 +11,7 @@ type SigningMethod interface {
 	Alg() string
 }
 
-var signingMethods map[string]func() SigningMethod
+var signingMethods = make(map[string]func() SigningMethod)
 
 func RegisterSigningMethod(alg string, m func() SigningMethod) {
 	signingMethods[alg] = m
