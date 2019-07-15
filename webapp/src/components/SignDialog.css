@@ -1,0 +1,18 @@
+.sign-dialog-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.sign-dialog-container i {
+    display: block;
+    width: 60px;
+    height: 60px;
+    font-size: 60px;
+    cursor: pointer;
+}
+
+.sign-dialog-container i.wechat-icon {
+    color: green;
+}

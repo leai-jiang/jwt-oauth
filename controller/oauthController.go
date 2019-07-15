@@ -105,7 +105,7 @@ func (* OAuthController) GetAccessToken(w http.ResponseWriter, r *http.Request) 
 	}
 	http.SetCookie(w, cookie)
 
-	http.Redirect(w, r, "/", http.StatusTemporaryRedirect)
+	http.Redirect(w, r, "http://localhost:3000", http.StatusTemporaryRedirect)
 }
 
 func init() {

@@ -101,7 +101,7 @@ class MeteorShower {
         let init = new Crood((Math.random() * 1.2 * this.cvs.width - 50), Math.random() * 300|0);
         let final = new Crood(init.x - distance * Math.cos(angle), init.y + distance * Math.sin(angle));
         let size = Math.random() * 2;
-        let speed = Math.random() * 400 + 100;
+        let speed = Math.random() * 20 + 100;
         let star = new ShootingStar(
           init, final, size, speed,
           ()=>{this.remove(star)}
@@ -114,7 +114,7 @@ class MeteorShower {
     };
 
     public update = (delta) => {
-        if (!this.isStop && this.stars.length < 40) {
+        if (!this.isStop && this.stars.length < 5) {
             this.stars.push(this.createStar());
         }
         this.stars.forEach((star)=>{
