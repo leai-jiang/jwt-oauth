@@ -22,7 +22,7 @@ type responseBody struct {
 	message string
 }
 
-func (this *loginController) checkLogin(w http.ResponseWriter, r *http.Request)  {
+func (l *loginController) checkLogin(w http.ResponseWriter, r *http.Request)  {
 	body := new(responseBody)
 
 	token, err := r.Cookie("u_t")

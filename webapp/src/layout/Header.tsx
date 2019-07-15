@@ -15,15 +15,15 @@ export const Header = (): JSX.Element => {
 	return (
 		<div className="header">
 			<div className="logo">Sparta</div>
-      {
-        state.isSign ? (
-          <div>
-            <Avatar src={state.avatar}/>
-            <em style={{ color: "#FFF", margin: "0 10px" }}>{state.userName}</em>
+	  {
+		state.isSign ? (
+		  <div>
+			<Avatar src={state.avatar}/>
+			<em style={{ color: "#FFF", margin: "0 10px" }}>{state.userName}</em>
 						<a href="javascript:void(0)" onClick={() => signOut()}>Sign out</a>
-          </div>
-        ) : <a href="javascript:void(0)" onClick={() => signIn()}>Sign in</a>
-      }
+		  </div>
+		) : <a href="javascript:void(0)" onClick={() => signIn()}>Sign in</a>
+	  }
 		</div>
 	)
 };
