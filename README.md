@@ -1,22 +1,33 @@
 "# spata" 
 
-## Deploy
+# https://github.com
+头像 -> setting -> Developer settings -> OAuth Apps
 
-yarn build
 
-git add . / git commit -m [commit-message] git push 
+# Client ID
+ecf4d78a2de563fbf68a
 
-jenkins shell
+# Client Secret
+01f41a42bfdd5564f4b6d7191c3d70d268f445cf
 
-``
-#!/bin/sh
-DEPLOY_PATH=/data/golang/src/sparta
+# Authorization callback URL
+应用服务接口 + "?code=${code}"
 
-rm -rf $DEPLOY_PATH/*
 
-cp -r * $DEPLOY_PATH
+##1
+https://github.com/login/oauth/authorize?client_id=${ClientId}
 
-cd $DEPLOY_PATH
+##2
+登录后重定向到 github上配置地 Authorization callback URL
 
-sh deploy.sh
+##3
+拿到 url 上的 code
+请求 https://github.com/login/oauth/access_token?client_id=${CientId}&client_secret=${ClientSecret}&code=${code}
+
+获取 access_token
+
+##4
+拿access_token 获取用户信息
+https://api.github.com/user
+
 ``
