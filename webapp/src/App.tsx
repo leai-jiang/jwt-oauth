@@ -10,7 +10,7 @@ const { useContext, useReducer } = React;
 
 const App = (): JSX.Element => {
   const store = useContext(GlobalStore);
-  const [state, dispatch] = useReducer(reducer, store);
+  const [state, dispatch] = useReducer(reducer, store.state);
 
   return (
     <GlobalStore.Provider value={{ state, dispatch }}>

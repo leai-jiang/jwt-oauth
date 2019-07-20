@@ -2,16 +2,22 @@ package controller
 
 import (
 	"encoding/json"
+	"fmt"
+	"github.com/dgrijalva/jwt-go"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"net/url"
 	"sparta/config"
+	"sparta/core"
 	"sparta/dao"
 	"sparta/model"
+	"time"
 )
 
 const (
+	SecretKey = "It is a secret key"
+
 	GithubLoginUrl = "https://github.com/login/oauth/authorize"
 
 	GithubAccessTokenApi = "https://github.com/login/oauth/access_token"
@@ -30,7 +36,7 @@ func (g *GithubSignController) RedirectToGithub(w http.ResponseWriter, r *http.R
 	http.Redirect(w, r, redirectUrl, http.StatusTemporaryRedirect)
 }
 
-//
+// github OAuth 登陆
 func (g *GithubSignController) SignIn(w http.ResponseWriter, r *http.Request) {
 	err := r.ParseForm()
 	if err != nil {
@@ -40,11 +46,42 @@ func (g *GithubSignController) SignIn(w http.ResponseWriter, r *http.Request) {
 
 	accessToken, err := g.getAccessToken(code)
 	if err != nil {
-
+		core.ResultFail(w, err.Error())
+		return
 	}
 
 	user, err := g.getUserInfo(accessToken)
+	if err != nil {
+		core.ResultFail(w, err.Error())
+		return
+	}
 
+	// 查数据库，有即更新，无则保存
+	alreadyExistUser, err := githubUserDao.SelectUserById(user.Id)
+	if err != nil {
+		githubUserDao.Insert(user)
+	}
+	fmt.Print(alreadyExistUser)
+
+	token := jwt.New(jwt.SigningMethodHS256)
+	claims := make(jwt.MapClaims)
+	claims["exp"] = time.Now().Add(time.Hour * time.Duration(1))
+	claims["iat"] = time.Now().Unix()
+	claims["id"] = user.Id
+
+	token.Claims = claims
+
+	tokenString, err := token.SignedString([]byte(SecretKey))
+
+	http.SetCookie(w, &http.Cookie{
+		Name: "token",
+		Value: tokenString,
+		Path: "/",
+		Expires: time.Now().Add(time.Hour * time.Duration(1)),
+		HttpOnly: true,
+	})
+
+	http.Redirect(w, r, "http://localhost:3000", http.StatusTemporaryRedirect)
 }
 
 // 获取 access_token
@@ -71,10 +108,12 @@ func (g *GithubSignController) getAccessToken(code string) (accessToken string, 
 		return "", err
 	}
 
-	accessToken = query["access_token"][0]
+	if len(query["access_token"]) > 0 {
+		accessToken = query["access_token"][0]
+	}
 	log.Println(`token ` + accessToken)
 
-	return accessToken, nil
+	return
 }
 
 // 拉取 github 用户信息

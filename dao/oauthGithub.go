@@ -4,14 +4,15 @@ import (
 	"log"
 	"sparta/core"
 	"sparta/model"
+	"time"
 )
 
 type OAuthGithubDao struct {}
 
-func (this *OAuthGithubDao) Insert(githubUser *model.GithubUser) int64 {
+func (o *OAuthGithubDao) Insert(githubUser *model.GithubUser) int64 {
 	result, err := core.DB.Exec(
 		"INSERT INTO OAuthGithub values (?,?,?,?,?,?,?,?,?)",
-		githubUser.Id, githubUser.Name, githubUser.Avatar, githubUser.Company, githubUser.Blog, githubUser.Email, githubUser.Location, githubUser.Create_time, githubUser.Update_time)
+		githubUser.Id, githubUser.Name, githubUser.Avatar, githubUser.Company, githubUser.Blog, githubUser.Email, githubUser.Location, time.Now(), time.Now())
 
 	if err != nil {
 		log.Println(err)
@@ -25,26 +26,32 @@ func (this *OAuthGithubDao) Insert(githubUser *model.GithubUser) int64 {
 	return id
 }
 
-
-func (this *OAuthGithubDao) SelectUserById(id int64) []model.GithubUser {
-	rows,err := core.DB.Query("SELECT `id`, `name`, `avatar` FROM OAuthGithub WHERE id = ?",id)
-	defer func() {
-		_ = rows.Close()
-	}()
+func (o *OAuthGithubDao) Update(githubUser *model.GithubUser) int64 {
+	result, err := core.DB.Exec(
+		"UPDATE OAuthGithub set (`name`, `avatar_url`, `company`, `blog`, `email`, `location`) = (?,?,?,?,?,?,?,) WHERE id = ?",
+		githubUser.Name, githubUser.Avatar, githubUser.Company, githubUser.Blog, githubUser.Email, githubUser.Location,
+		githubUser.Id,
+	)
 	if err != nil {
 		log.Println(err)
-		return nil
+		return 0
 	}
-	var users []model.GithubUser
-	for rows.Next() {
-		var user model.GithubUser
-		err := rows.Scan(&user.Id,&user.Name,&user.Avatar)
-		if err != nil{
-			log.Println(err)
-			continue
-		}
-		users = append(users,user)
+	id, err := result.LastInsertId()
+	if err != nil {
+		log.Println(err)
+		return 0
+	}
+	return id
+}
+
+
+func (o *OAuthGithubDao) SelectUserById(id int64) (*model.GithubUser, error) {
+	var user = new(model.GithubUser)
+	err := core.DB.QueryRow("SELECT `id`, `name`, `avatar` FROM OAuthGithub WHERE id = ?",id).Scan(&user.Id, &user.Name, &user.Avatar)
+
+	if err != nil {
+		return nil, err
 	}
 
-	return users
+	return user, nil
 }

@@ -26,4 +26,8 @@ func main() {
 	fmt.Print(b.Name())
 
 	fmt.Println(crypto.SHA256)
+
+	a := 30949881
+
+	fmt.Printf("%T", a)
 }

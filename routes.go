@@ -22,20 +22,54 @@ func makeHandler(fn func(http.ResponseWriter, *http.Request)) http.HandlerFunc {
 
 var signController = new(controller.SignController)
 var githubSignController = new(controller.GithubSignController)
+var userController = new(controller.UserController)
 
 var routes = Routes{
-	Route{"HealthCheck", "GET", "/health", controller.HealthCheck},
+	Route{
+		"HealthCheck",
+		"GET",
+		"/health",
+		controller.HealthCheck,
+	},
 
 	// 登录
-	Route{"SignIn", "POST", "/login", signController.SignIn},
+	Route{
+		"SignIn",
+		"POST",
+		"/login",
+		signController.SignIn,
+	},
 
 	// github 第三方登录
-	Route{ "GithubSignIn", "POST", "/login/github", githubSignController.RedirectToGithub},
+	Route{
+		"GithubSignIn",
+		"GET",
+		"/login/github",
+		githubSignController.RedirectToGithub,
+	},
+
+	// github 第三方登陆成功回调
+	Route{
+		"GithubCallback",
+		"GET",
+		"/github/callback",
+		githubSignController.SignIn,
+	},
 
 	// 登出
-	Route{"SignOut", "POST", "/logout", signController.SignOut},
+	Route{
+		"SignOut",
+		"POST",
+		"/logout",
+		signController.SignOut,
+	},
 }
 
 var restRoutes = Routes{
-	Route{},
+	Route{
+		"GetUserInfo",
+		"POST",
+		"/user",
+		userController.GetUserInfo,
+	},
 }

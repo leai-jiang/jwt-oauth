@@ -15,16 +15,17 @@ const Container = (props: ContainerProps): JSX.Element => {
   React.useEffect(() => {
     request({
       method: "POST",
-      action: "/api/login"
+      action: "/api/rest/user"
     }).then((res: any) => {
-      if (res.RetCode === 0 && res.Data) {
-        const { name, avatar_url } = res.Data[0];
+      if (res.RetCode === 0) {
+        const { name, avatar_url } = res.Data;
 
         dispatch({
           type: "SIGN_IN",
           payload: {
             userName: name,
-            avatar: avatar_url
+            avatar: avatar_url,
+            isSign: true
           }
         })
       }

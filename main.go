@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"sparta/config"
 	"sparta/core"
+	"sparta/middleware"
 )
 
 func main() {
@@ -24,15 +25,15 @@ func main() {
 	}
 
 	// 需要走 JWTHttpMiddleware
-	//rest := api.PathPrefix("/rest").Subrouter()
-	//for _, route := range restRoutes {
-	//	rest.
-	//		Methods(route.Method).
-	//		Path(route.Pattern).
-	//		Name(route.Name).
-	//		Handler(makeHandler(route.HandlerFunc))
-	//}
-	//rest.Use(middleware.JWTHTTPMiddleware)
+	rest := api.PathPrefix("/rest").Subrouter()
+	for _, route := range restRoutes {
+		rest.
+			Methods(route.Method).
+			Path(route.Pattern).
+			Name(route.Name).
+			Handler(makeHandler(route.HandlerFunc))
+	}
+	rest.Use(middleware.JWTHTTPMiddleware)
 
 	http.Handle("/", r)
 	err := http.ListenAndServe(":5005", nil)
