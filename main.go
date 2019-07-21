@@ -24,6 +24,8 @@ func main() {
 			Handler(makeHandler(route.HandlerFunc))
 	}
 
+	api.Use(middleware.LoggerMiddleware)
+
 	// 需要走 JWTHttpMiddleware
 	rest := api.PathPrefix("/rest").Subrouter()
 	for _, route := range restRoutes {

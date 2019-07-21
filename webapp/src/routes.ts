@@ -14,4 +14,4 @@ export const routes: Route[] = [
       path: "/home",
       component: Home
     }
-]
+];

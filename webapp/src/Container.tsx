@@ -17,7 +17,7 @@ const Container = (props: ContainerProps): JSX.Element => {
       method: "POST",
       action: "/api/rest/user"
     }).then((res: any) => {
-      if (res.RetCode === 0) {
+      if (res && res.RetCode === 0) {
         const { name, avatar_url } = res.Data;
 
         dispatch({

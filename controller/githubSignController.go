@@ -59,10 +59,12 @@ func (g *GithubSignController) SignIn(w http.ResponseWriter, r *http.Request) {
 	// 查数据库，有即更新，无则保存
 	alreadyExistUser, err := githubUserDao.SelectUserById(user.Id)
 	if err != nil {
+		fmt.Println("The user is new", user)
 		githubUserDao.Insert(user)
 	}
-	fmt.Print(alreadyExistUser)
+	fmt.Println("The user already exist", alreadyExistUser)
 
+	// JWT 签名
 	token := jwt.New(jwt.SigningMethodHS256)
 	claims := make(jwt.MapClaims)
 	claims["exp"] = time.Now().Add(time.Hour * time.Duration(1))

@@ -3,7 +3,6 @@
 # https://github.com
 头像 -> setting -> Developer settings -> OAuth Apps
 
-
 # Client ID
 ecf4d78a2de563fbf68a
 

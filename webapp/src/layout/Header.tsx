@@ -2,6 +2,7 @@ import * as React from "react";
 import { Avatar } from "antd"
 import GlobalStore from "../context/GlobalStore";
 import signIn from "../components/SignDialog";
+import request from "../utils/request";
 
 const { useContext } = React;
 
@@ -9,7 +10,12 @@ export const Header = (): JSX.Element => {
   const { state, dispatch } = useContext(GlobalStore);
 
   function signOut() {
-  	dispatch({ type: "SIGN_OUT" });
+  	request({
+			method: "POST",
+			action: "/api/logout",
+		}).then((res: any) => {
+			dispatch({ type: "SIGN_OUT" });
+		});
 	}
 
 	return (
