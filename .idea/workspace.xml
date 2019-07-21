@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b06feefc-6f07-4585-ba95-9984a6b7bb26" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/githubSignController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/githubSignController.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/signController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/signController.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/JWTHTTPMiddleware.go" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/JWTHTTPMiddleware.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/logger.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/Container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/Container.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/layout/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/layout/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/routes.ts" afterDir="false" />
-    </list>
+    <list default="true" id="b06feefc-6f07-4585-ba95-9984a6b7bb26" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +14,7 @@
         <entry file="file://$PROJECT_DIR$/webapp/src/layout/Header.tsx">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="80">
-              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -36,8 +25,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controller/githubSignController.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1779">
-              <caret line="135" column="31" lean-forward="true" selection-start-line="135" selection-start-column="31" selection-end-line="135" selection-end-column="31" />
+            <state relative-caret-position="215">
+              <caret line="43" column="5" lean-forward="true" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -46,7 +35,7 @@
         <entry file="file://$PROJECT_DIR$/middleware/JWTHTTPMiddleware.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="493">
-              <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+              <caret line="43" selection-start-line="43" selection-end-line="43" />
             </state>
           </provider>
         </entry>
@@ -76,7 +65,7 @@
         <entry file="file://$PROJECT_DIR$/webapp/src/Container.tsx">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
-              <caret line="8" column="26" lean-forward="true" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+              <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -88,7 +77,7 @@
         <entry file="file://$PROJECT_DIR$/webapp/src/utils/request.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="374">
-              <caret line="22" column="7" lean-forward="true" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+              <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -97,7 +86,7 @@
         <entry file="file://$PROJECT_DIR$/controller/userController.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
-              <caret line="14" column="39" lean-forward="true" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+              <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
               <folding>
                 <element signature="e#20#56#0" expanded="true" />
               </folding>
@@ -252,36 +241,6 @@
               <item name="sparta" type="b2602c69:ProjectViewProjectNode" />
               <item name="sparta" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="sparta" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sparta" type="462c0819:PsiDirectoryNode" />
-              <item name="__test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sparta" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sparta" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sparta" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sparta" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sparta" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sparta" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sparta" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sparta" type="462c0819:PsiDirectoryNode" />
-              <item name="middleware" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sparta" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sparta" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -307,6 +266,9 @@
     <property name="ts.external.directory.path" value="D:\workspace\leai\src\sparta\webapp\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workspace\leai\src\sparta" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\workspace\leai\src\sparta\core" />
       <recent name="D:\workspace\leai\src\sparta" />
@@ -682,14 +644,14 @@
     <entry file="file://$PROJECT_DIR$/webapp/src/utils/request.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
-          <caret line="22" column="7" lean-forward="true" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+          <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/webapp/src/Container.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="8" column="26" lean-forward="true" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
@@ -699,7 +661,7 @@
     <entry file="file://$PROJECT_DIR$/webapp/src/layout/Header.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
@@ -716,7 +678,7 @@
     <entry file="file://$PROJECT_DIR$/controller/userController.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="14" column="39" lean-forward="true" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+          <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
           <folding>
             <element signature="e#20#56#0" expanded="true" />
           </folding>
@@ -733,7 +695,7 @@
     <entry file="file://$PROJECT_DIR$/middleware/JWTHTTPMiddleware.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
-          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
         </state>
       </provider>
     </entry>
@@ -749,8 +711,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/githubSignController.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1779">
-          <caret line="135" column="31" lean-forward="true" selection-start-line="135" selection-start-column="31" selection-end-line="135" selection-end-column="31" />
+        <state relative-caret-position="215">
+          <caret line="43" column="5" lean-forward="true" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
         </state>
       </provider>
     </entry>
