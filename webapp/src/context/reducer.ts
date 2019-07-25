@@ -6,7 +6,6 @@ interface Action {
 }
 
 function reducer(state: State, action: Action) {
-  console.log(111, state, action);
   switch (action.type) {
     case "SIGN_IN":
       return {

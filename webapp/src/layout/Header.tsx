@@ -13,23 +13,23 @@ export const Header = (): JSX.Element => {
   	request({
 			method: "POST",
 			action: "/api/logout",
-		}).then((res: any) => {
+		}).then(() => {
 			dispatch({ type: "SIGN_OUT" });
 		});
 	}
 
 	return (
 		<div className="header">
-			<div className="logo">Sparta</div>
-	  {
-		state.isSign ? (
-		  <div>
-			<Avatar src={state.avatar}/>
-			<em style={{ color: "#FFF", margin: "0 10px" }}>{state.userName}</em>
-						<a href="javascript:void(0)" onClick={() => signOut()}>Sign out</a>
-		  </div>
-		) : <a href="javascript:void(0)" onClick={() => signIn()}>Sign in</a>
-	  }
+		  <div className="logo">Sparta</div>
+		  {
+			state.isSign ? (
+			  <div>
+				<Avatar src={state.avatar}/>
+				<em style={{ color: "#FFF", margin: "0 10px" }}>{state.userName}</em>
+							<a href="javascript:void(0)" onClick={() => signOut()}>Sign out</a>
+			  </div>
+			) : <a href="javascript:void(0)" onClick={() => signIn()}>Sign in</a>
+		  }
 		</div>
 	)
 };

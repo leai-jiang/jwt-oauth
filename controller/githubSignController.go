@@ -16,8 +16,6 @@ import (
 )
 
 const (
-	SecretKey = "It is a secret key"
-
 	GithubLoginUrl = "https://github.com/login/oauth/authorize"
 
 	GithubAccessTokenApi = "https://github.com/login/oauth/access_token"
@@ -73,6 +71,7 @@ func (g *GithubSignController) SignIn(w http.ResponseWriter, r *http.Request) {
 
 	token.Claims = claims
 
+	SecretKey := config.Viper.GetString("secret_key")
 	tokenString, err := token.SignedString([]byte(SecretKey))
 
 	http.SetCookie(w, &http.Cookie{
@@ -83,7 +82,8 @@ func (g *GithubSignController) SignIn(w http.ResponseWriter, r *http.Request) {
 		HttpOnly: true,
 	})
 
-	http.Redirect(w, r, "http://localhost:3000", http.StatusTemporaryRedirect)
+	homePage := config.Viper.GetString("home_page_dev")
+	http.Redirect(w, r, homePage, http.StatusTemporaryRedirect)
 }
 
 // 获取 access_token

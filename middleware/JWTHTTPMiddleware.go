@@ -3,11 +3,10 @@ package middleware
 import (
 	"github.com/dgrijalva/jwt-go"
 	"net/http"
+	"sparta/config"
 	"sparta/core"
 	"strconv"
 )
-
-var SecretKey = "It is a secret key"
 
 func JWTHTTPMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -19,6 +18,7 @@ func JWTHTTPMiddleware(next http.Handler) http.Handler {
 		}
 
 		// 解析 JWT 签名，是否有效 赋值于 token.Valid
+		SecretKey := config.Viper.GetString("secret_key")
 		token, err := jwt.Parse(cookie.Value, func(token *jwt.Token) (interface{}, error) {
 			return []byte(SecretKey), nil
 		})

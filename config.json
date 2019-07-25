@@ -6,12 +6,15 @@
     "password": "Jerusalem3",
     "database": "sparta"
   },
+  "home_page_dev": "http://localhost:3000",
+  "home_page_prod": "http://139.199.230.235",
   "oauth_github_dev": {
     "clientId": "ecf4d78a2de563fbf68a",
     "clientSecret": "01f41a42bfdd5564f4b6d7191c3d70d268f445cf"
   },
   "oauth_github_prod": {
-    "clientId": "eed6beabf09a8713d3a7",
-    "clientSecret": "801d470a630d99d2a6d6a0c05af875f326b3f9d5"
-  }
+    "clientId": "97013cfae15f1ee4629e",
+    "clientSecret": "684cd7fee9187b4aa2b72016667af3a9e0cbf3ba"
+  },
+  "secret_key": "It is a secret key"
 }
